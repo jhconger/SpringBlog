@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/partials/head :: head">
-    <title>Home</title>
+  <title>All Posts</title>
 </head>
 <body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main>
-
-
-
+  <h1>Here are all the posts.</h1>
+  <div th:each="post : ${posts}">
+    <h3 th:text="${post.title}"></h3>
+    <p th:text="${post.body}"></p>
+  </div>
 </main>
 
-
-</body>
 <footer th:replace="/partials/footer :: footer"></footer>
+</body>
 </html>
