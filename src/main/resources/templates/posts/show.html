@@ -11,6 +11,10 @@
     <h3 th:text="${post.title}"></h3>
     <h3 th:text="${post.user}"></h3>
     <p th:text="${post.body}"></p>
+    <h3>Created by the user:
+        Username: <span th:text="${post.user.username}"></span>
+        Email: <span th:text="${post.user.email}"></span>
+    </h3>
 </main>
 
 

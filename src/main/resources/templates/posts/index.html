@@ -8,8 +8,12 @@
 <main>
   <h1>Here are all the posts.</h1>
   <div th:each="post : ${posts}">
-    <h3 th:text="${post.title}"></h3>
+    <a th:href="@{/posts/{id}(id=${post.id})}"><h3 th:text="${post.title}"></h3></a>
     <p th:text="${post.body}"></p>
+    <h3>Created by the user:
+      <a th:text="${post.user.username}"/><br>
+      Email: <a th:text="${post.user.email}"/>
+    </h3>
   </div>
 </main>
 
