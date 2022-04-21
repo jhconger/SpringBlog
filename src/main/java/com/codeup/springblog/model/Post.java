@@ -1,22 +1,15 @@
 package com.codeup.springblog.model;
-import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
 public class Post {
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,22 +23,37 @@ public class Post {
 
     @OneToOne
     private User user;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<PostImage> images;
+
+
+
     public Post() {}
 
-    public Post(String title, String body) {
-        this.title = title;
-        this.body = body;
-
-    }
-    public Post(String title, String body, User user) {
+    public Post(String title, String body, User user, List<PostImage> images) {
         this.title = title;
         this.body = body;
         this.user = user;
+        this.images = images;
     }
 
-
+    public Post(long id, String title, String body, User user, List<PostImage> images) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.user = user;
+        this.images = images;
+    }
 
     // getters & setters
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -60,6 +68,17 @@ public class Post {
         this.body = body;
     }
 
-    public User getUser() {return this.user;}
-    public void setUser(User user){this.user = user;}
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<PostImage> getImages() {
+        return images;
+    }
+    public void setImages(List<PostImage> images) {
+        this.images = images;
+    }
 }

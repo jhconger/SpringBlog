@@ -55,8 +55,6 @@ public class User {
         this.password = copy.password;
     }
 
-    // getters and setters
-
     public long getId() {
         return id;
     }

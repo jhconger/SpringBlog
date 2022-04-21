@@ -7,14 +7,22 @@
 <body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main>
-    <h1>Here is your post.</h1>
+    <h5>Here is your post.</h5>
     <h3 th:text="${post.title}"></h3>
-    <h3 th:text="${post.user}"></h3>
+<!--    <h3 th:text="${post.user}"></h3>-->
     <p th:text="${post.body}"></p>
-    <h3>Created by the user:
-        Username: <span th:text="${post.user.username}"></span>
+    <h5>Created by the user:
+        <span th:text="${post.user.username}"></span>
         Email: <span th:text="${post.user.email}"></span>
-    </h3>
+    </h5>
+    <form th:action="${'/posts/' + post.id + '/edit'}">
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+    <form th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
+        <input type="hidden" name="id" th:value="${post.id}">
+        <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+
 </main>
 
 
