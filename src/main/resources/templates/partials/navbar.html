@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
 <style>
     @media all and (min-width: 992px) {
-        .navbar .nav-item .dropdown-menu{ display: none; }
-        .navbar .nav-item:hover .nav-link{   }
-        .navbar .nav-item:hover .dropdown-item{ display: block; }
-        .navbar .nav-item .dropdown-menu{ margin-top:0; }
+
+
+
+        /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+        .sticky + .content {
+            padding-top: 60px;
+        }
     }
 </style>
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <title></title>
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar sticky navbar-expand-lg navbar-dark bg-dark" id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="https://github.com/jhconger">
             <img th:src="@{/images/HartLogoWhite.png}"/>™
@@ -58,4 +62,5 @@
         </div>
     </div>
 </nav>
+</body>
 </html>

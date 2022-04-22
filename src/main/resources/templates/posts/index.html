@@ -34,25 +34,42 @@
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main class="m-4 ">
     <h3 class="header d-flex card text-center">Here are all the posts: </h3>
-    <div  id="drop" class="base car-one">
-        <div class="card-deck">
-            <div class="card-deck car-item bg-info mx-3 my-3 d-flex justify-content-center" style="overflow-y: auto;" th:each="post : ${posts}">
-                <div th:href="@{/posts/{id}(id=${post.id})}">
-                <h3 class="card-deck card-title btn btn-primary" th:text="${post.title}"></h3>
-                </div>
-                <p class="card-deck card-text" th:text="${post.body}"></p>
-                <p class="card-deck card-footer " >Created by the user:
-                    <a th:text="${post.user.username}"/><br>
-                    Email: <a th:text="${post.user.email}"/>
-                </p>
-            </div>
-
-
+    <div class="car-item card-deck d-flex justify-content-around mx-4 my-4 bg-info col-4"  style="overflow-y: auto;" th:each="post : ${posts}">
+        <div class="card-title">
+            <a class="btn btn-primary" th:href="@{/posts/{id}(id=${post.id})}"><h4 class ="text-center" th:text="${post.title}"></h4></a>
+        </div>
+        <div class="card-content">
+            <p th:text="${post.body}"/>
+        </div>
+        <div class="card-text text-center" >
+            <p>Created by: <a th:text="${post.user.username}"/>
+            Email: <a th:text="${post.user.email}"/>
+            </p>
         </div>
     </div>
 
-
-
+    <script>
+        $("car-1").click(function () {
+            $("li").css({"font-weight":"bolder", "color":"brown"})
+        });
+        $("car-2").click(function () {
+            $("li").css({"font-weight":"bolder", "color":"brown"})
+        });
+        $("car-3").click(function () {
+            $("li").css({"font-weight":"bolder", "color":"brown"})
+        });
+        /*Will Continue after functionality*/
+        var car = document.getElementsByClassName("car-one");
+        car.addEventListener('click', clicker );
+        function clicker() {
+            $("car-two").css({"font-weight":"bolder", "color":"brown"})
+        }
+        document.onscroll = function() {
+            if (window.innerHeight + window.scrollY > document.body.clientHeight) {
+                document.getElementById('drop').style.display='none';
+            }
+        }
+    </script>
 
 </main>
 <footer th:replace="/partials/footer :: footer"></footer>
