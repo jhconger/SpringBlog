@@ -7,7 +7,7 @@
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main>
     <h1>Here's your profile.</h1>
-    <div sec:authentication="isAuthenticated()">
+    <div sec:authorize="isAuthenticated()">
         <table class="table table-borderless">
             <tbody>
             <tr>

@@ -43,12 +43,14 @@ public class PostController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         post.setImages(null);
-        postsDao.save(post);
-
+        Post savedPost = postsDao.save(post);
+        String subject = "New Ad Created: " + savedPost.getTitle();
+        String body = "Dear " + savedPost.getUser().getUsername() + ", Thank you for creating an Ad. Your ad is: " + savedPost.getId();
         // send email to the user
         emailService.prepareAndSend(post, "New Post Created", post.getBody());
         return "redirect:/posts/" + post.getId();
     }
+
 
     @GetMapping(path = "/posts/{id}/edit")
     public String showEditForm(@PathVariable long id, Model model) {
