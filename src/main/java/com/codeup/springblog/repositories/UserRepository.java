@@ -1,7 +1,6 @@
-package com.codeup.springblog.dao;
+package com.codeup.springblog.repositories;
 
 
-import com.codeup.springblog.model.Post;
 import com.codeup.springblog.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,5 +11,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findUserByFirstName(String first_name);
     User findUserByLastName(String last_name);
     User findUserByUsername(String username);
+    User findByUsername(String username);
+    }
 
-}
+

@@ -7,14 +7,19 @@
 <body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main>
-    <h5>Here is your post.</h5>
+    <h1>Here is your post.</h1>
     <h3 th:text="${post.title}"></h3>
-<!--    <h3 th:text="${post.user}"></h3>-->
     <p th:text="${post.body}"></p>
-    <h5>Created by the user:
-        <span th:text="${post.user.username}"></span>
-        Email: <span th:text="${post.user.email}"></span>
-    </h5>
+    <div th:each="image : ${post.images}">
+        <img th:src="${image.path}" th:alt="${image.description}">
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        Created by the user:
+        User ID: <span th:text="${#authentication.principal.id}"/>
+        Username: <span th:text="${#authentication.principal.username}"/>
+        Email: <span th:text="${#authentication.principal.email}"/>
+    </div>
+
     <form th:action="${'/posts/' + post.id + '/edit'}">
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>

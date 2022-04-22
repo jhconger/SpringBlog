@@ -1,16 +1,13 @@
-package com.codeup.springblog;
+package com.codeup.springblog.controllers;
 
-import com.codeup.springblog.dao.PostRepository;
+import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.model.Post;
 import com.codeup.springblog.model.User;
 import com.codeup.springblog.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -42,7 +39,8 @@ public class PostController {
 
     @PostMapping(path = "/posts/create")
     public String create(@ModelAttribute Post post) {
-        User user = (User) post.getUser();
+//        User user = (User) post.getUser();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         post.setImages(null);
         postsDao.save(post);

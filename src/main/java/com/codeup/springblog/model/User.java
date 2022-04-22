@@ -3,7 +3,10 @@ package com.codeup.springblog.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(name = "uc_user_username", columnNames = {"username"}),
+        @UniqueConstraint(name = "uc_user_email", columnNames = {"email"})
+})
 public class User {
 
     @Id
