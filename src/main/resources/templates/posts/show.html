@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <title>Post</title>
 </head>
-<body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main>
-    <h1>Here is your post.</h1>
-    <h3 th:text="${post.title}"></h3>
-    <p th:text="${post.body}"></p>
-    <div th:each="image : ${post.images}">
-        <img th:src="${image.path}" th:alt="${image.description}">
-    </div>
-    <div sec:authorize="isAuthenticated()">
-        Created by the user:
-        User ID: <span th:text="${#authentication.principal.id}"/>
-        Username: <span th:text="${#authentication.principal.username}"/>
-        Email: <span th:text="${#authentication.principal.email}"/>
-    </div>
+    <h5>Here is your post:</h5>
+    <div class="card-deck d-flex flex-column bg-info m-4 p-2" style="width:500px">
+        <h4 th:text="${post.title}"></h4>
+        <p th:text="${post.body}"></p>
+        <div th:each="image : ${post.images}">
+            <img th:src="${image.path}" th:alt="${image.description}">
+        </div>
+        <div sec:authorize="isAuthenticated()">
+                <h5>Created by the user: </h5>
+<!--            User ID: <span th:text="${#authentication.principal.id}"/>-->
+           <h5><span th:text="${#authentication.principal.username}"/></h5>
+            <h5>Email: <span th:text="${#authentication.principal.email}"/></h5>
+        </div>
 
-    <form th:action="${'/posts/' + post.id + '/edit'}">
-        <button type="submit" class="btn btn-primary">Edit</button>
-    </form>
-    <form th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
-        <input type="hidden" name="id" th:value="${post.id}">
-        <button type="submit" class="btn btn-primary">Delete</button>
-    </form>
+        <form class="card-left" th:action="${'/posts/' + post.id + '/edit'}">
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+        <form class="card-right" th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
+            <input type="hidden" name="id" th:value="${post.id}">
+            <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
+    </div>
 
 </main>
 
