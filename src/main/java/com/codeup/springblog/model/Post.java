@@ -21,7 +21,7 @@ public class Post {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String body;
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")

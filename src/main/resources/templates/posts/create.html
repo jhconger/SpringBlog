@@ -6,8 +6,8 @@
 </head>
 <body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
-<main>
-    <h1>Create your post here.</h1>
+<main class="m-4">
+    <h1 class="d-flex justify-content-center">Create your post here.</h1>
     <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
         <div class="form-group">
             <label for="newTitle">Create a Post</label>

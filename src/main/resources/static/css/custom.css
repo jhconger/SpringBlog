@@ -1,0 +1,23 @@
+html {
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 193px;
+}
+
+main {
+    margin: 100px;!important;
+    flex: 1 0 auto;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}

@@ -5,8 +5,8 @@
     <title>Post</title>
 </head>
 <nav th:replace="/partials/navbar :: navbar"></nav>
-<main>
-    <h5>Here is your post:</h5>
+<main class="m-4">
+    <h5 class="d-flex justify-content-center">Here is your post:</h5>
     <div class="card-deck d-flex flex-column bg-info m-4 p-2" style="width:500px">
         <h4 th:text="${post.title}"></h4>
         <p th:text="${post.body}"></p>

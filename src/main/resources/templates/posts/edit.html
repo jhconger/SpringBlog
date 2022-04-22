@@ -6,8 +6,8 @@
 </head>
 <body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
-<main>
-  <h1>Edit your post here.</h1>
+<main class="m-4">
+  <h1 class="d-flex justify-content-center">Edit your post here.</h1>
 
   <form th:action="${'/posts/' + post.id + '/edit'}" th:method="post" th:object="${post}">
     <input type="hidden" name="id" th:value="${post.id}">

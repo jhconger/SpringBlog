@@ -1,6 +1,9 @@
 package com.codeup.springblog.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
@@ -27,6 +30,10 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
 
     public User() {
     }

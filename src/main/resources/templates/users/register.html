@@ -5,7 +5,7 @@
 </head>
 <body>
 <nav th:replace="/partials/navbar :: navbar"></nav>
-<main>
+<main class="m-4">
     <h1>Register Form</h1>
     <form th:action="@{/register}" th:method="post" th:object="${user}">
         <div class="form-group">
