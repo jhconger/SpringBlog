@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/partials/head :: head">
-    <meta charset="UTF-8">
-    <title>Post</title>
+    <title>All Posts</title>
 </head>
+<style>
+    .car-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        border: 3px solid #eee;
+        padding: 15px;
+        border-radius: 10px;
+        background: green;
+        max-width:100%;
+        max-height:100%;
+        height: 260px;
+        width: 260px;
+    }
+    .car-item:hover {
+        width: 500px;
+        height: 200px;
+        transition: ease-in-out .5s;
+        border: 3px solid #eee;
+        box-shadow: black;
+    }
+    .header {
+        color: #94a1a6;
+    }
+    #edit {
+        margin-right: 5em;
+        height: 38px;
+        width: 73px;
+    }
+    #delete{
+        height: 38px;
+        width: 73px;
+    }
+</style>
+<body class="bg-dark">
 <nav th:replace="/partials/navbar :: navbar"></nav>
-<main class="m-4">
-    <h5 class="d-flex justify-content-center">Here is your post:</h5>
-    <div class="card-deck d-flex flex-column bg-info m-4 p-2" style="width:500px">
-        <h4 th:text="${post.title}"></h4>
+<main class="m-4 ">
+    <h3 class="header d-flex card text-center">Here is your post:</h3>
+    <div class="car-item card-deck d-flex justify-content-around mx-4 my-4 bg-info col-4"  style="overflow-y: auto;">
+    <h4 th:text="${post.title}"></h4>
         <p th:text="${post.body}"></p>
         <div th:each="image : ${post.images}">
             <img th:src="${image.path}" th:alt="${image.description}">
         </div>
         <div sec:authorize="isAuthenticated()">
                 <h5>Created by the user: </h5>
-<!--            User ID: <span th:text="${#authentication.principal.id}"/>-->
+            User ID: <span th:text="${#authentication.principal.id}"/>
            <h5><span th:text="${#authentication.principal.username}"/></h5>
             <h5>Email: <span th:text="${#authentication.principal.email}"/></h5>
         </div>
-
-        <form class="card-left" th:action="${'/posts/' + post.id + '/edit'}">
-            <button type="submit" class="btn btn-primary">Edit</button>
-        </form>
-        <form class="card-right" th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
-            <input type="hidden" name="id" th:value="${post.id}">
-            <button type="submit" class="btn btn-primary">Delete</button>
-        </form>
+            <div class="d-flex" id="buttons">
+                <form th:action="${'/posts/' + post.id + '/edit'}">
+                    <button type="submit" id="edit" class="btn btn-primary">Edit</button>
+                </form>
+                <form th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <button type="submit" id="delete" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+        </div>
     </div>
 
 </main>

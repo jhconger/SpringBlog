@@ -1,18 +1,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<footer th:fragment="footer" class="bg-dark text-center text-white">
+<footer th:fragment="footer" class="fixed-bottom bg-dark text-center text-white">
     <style>
         /* Footer */
         @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-        #footer {
+        footer {
             padding:-1px;
             text-align: center;
             /*color: #007b5e;*/
-            margin-bottom: -50px;
+            margin-bottom: -10px;
             text-transform: uppercase;
             /*background: #007b5e !important;*/
             box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
         }
+
         p.h6 {
             text-transform: none;
         }
@@ -83,9 +84,9 @@
     </style>
     <!-- Footer -->
         <!-- Grid container -->
-        <div class="container p-4 pb-0">
+        <div class="container p-0 pb-0">
             <!-- Section: Social media -->
-            <section class="mb-4">
+            <section class="mb-1">
                 <!-- Facebook -->
                 <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/justin.conger.90" role="button"
                 ><i class="fa fa-facebook-f"></i

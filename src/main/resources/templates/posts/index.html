@@ -20,7 +20,7 @@
         width: 250px;
     }
     .car-item:hover {
-        width: 800px;
+        width: 500px;
         height: 200px;
         transition: ease-in-out .5s;
         border: 3px solid #eee;
@@ -29,10 +29,13 @@
     .header {
         color: #94a1a6;
     }
+    body{
+        margin-bottom: 50px;
+    }
 </style>
-<body class="bg-dark">
+<body class="bg-dark mb-5 pb-5">
 <nav th:replace="/partials/navbar :: navbar"></nav>
-<main class="m-4 ">
+<main class="m-4 mb-5 pb-5">
     <h3 class="header d-flex card text-center">Here are all the posts: </h3>
     <div class="car-item card-deck d-flex justify-content-around mx-4 my-4 bg-info col-4"  style="overflow-y: auto;" th:each="post : ${posts}">
         <div class="card-title">
