@@ -42,7 +42,7 @@
 <body class="bg-dark">
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main class="m-4 ">
-    <h3 class="header d-flex card text-center">Here is your post:</h3>
+    <h3 class="header d-flex card bg-dark text-center">Here is your post:</h3>
     <div class="car-item card-deck d-flex justify-content-around mx-4 my-4 bg-info col-4"  style="overflow-y: auto;">
     <h4 th:text="${post.title}"></h4>
         <p th:text="${post.body}"></p>
