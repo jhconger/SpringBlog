@@ -45,9 +45,7 @@
 <main class="m-4 mb-5 pb-5">
     <h3 class="header d-flex card bg-dark text-center">Here are all the posts: </h3>
     <div id="card-container" class=" d-flex flex-wrap">
-        <div class="car-item card-deck d-flex justify-content-around
-         mx-4 my-4 bg-info" style="overflow-y:auto;"
-             th:each="post : ${posts}">
+        <div class="car-item card-deck d-flex justify-content-around mx-4 my-4 bg-info" style="overflow-y:auto;" th:each="post : ${posts}">
             <div class="card-title">
                 <a class="btn btn-primary" th:href="@{/posts/{id}(id=${post.id})}"><h4 class="text-center" th:text="${post.title}"></h4></a>
             </div>
