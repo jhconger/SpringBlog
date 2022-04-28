@@ -24,21 +24,21 @@ public class Post {
     @ManyToOne
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    private List<PostImage> images;
+   @Column
+    private String images;
 
 
 
     public Post() {}
 
-    public Post(String title, String body, User user, List<PostImage> images) {
+    public Post(String title, String body, User user, String images) {
         this.title = title;
         this.body = body;
         this.user = user;
         this.images = images;
     }
 
-    public Post(long id, String title, String body, User user, List<PostImage> images) {
+    public Post(long id, String title, String body, User user, String images) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -75,10 +75,10 @@ public class Post {
         this.user = user;
     }
 
-    public List<PostImage> getImages() {
+    public String getImages() {
         return images;
     }
-    public void setImages(List<PostImage> images) {
+    public void setImages(String images) {
         this.images = images;
     }
 }

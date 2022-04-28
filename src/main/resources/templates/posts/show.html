@@ -64,9 +64,9 @@
                 </div>
             </div>
             <div th:each="image : ${post.images}">
-                <img th:src="${image.path}" th:alt="${image.description}">
+                <img th:src="${post.images}">
             </div>
-            <img width="50" th:src="${image.url}" alt="" th:each="image : ${post.images}">
+
 
             <div class="d-flex" id="buttons">
                 <form th:action="${'/posts/' + post.id + '/edit'}">

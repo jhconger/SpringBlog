@@ -3,43 +3,43 @@
 <head th:replace="/partials/head :: head">
     <title>All Posts</title>
 </head>
-<style>
-    .car-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        border: 3px solid #eee;
-        padding: 15px;
-        border-radius: 10px;
-        max-width: 100%;
-        max-height: 100%;
-        height: 260px;
-        width: 260px;
-    }
+<!--<style>-->
+<!--    .car-item {-->
+<!--        display: flex;-->
+<!--        flex-direction: column;-->
+<!--        align-items: center;-->
+<!--        justify-content: center;-->
+<!--        margin: 0 10px;-->
+<!--        border: 3px solid #eee;-->
+<!--        padding: 15px;-->
+<!--        border-radius: 10px;-->
+<!--        max-width: 100%;-->
+<!--        max-height: 100%;-->
+<!--        height: 260px;-->
+<!--        width: 260px;-->
+<!--    }-->
 
-    .car-item:hover {
-        height: 300px;
-        width: 300px;
-        transition: ease-in-out .5s;
-        border: 3px solid #eee;
-        box-shadow: black;
-    }
+<!--    .car-item:hover {-->
+<!--        height: 300px;-->
+<!--        width: 300px;-->
+<!--        transition: ease-in-out .5s;-->
+<!--        border: 3px solid #eee;-->
+<!--        box-shadow: black;-->
+<!--    }-->
 
-    #card-container {
-        flex-direction: row;
-        justify-content: center;
-    }
+<!--    #card-container {-->
+<!--        flex-direction: row;-->
+<!--        justify-content: center;-->
+<!--    }-->
 
-    .header {
-        color: #94a1a6;
-    }
+<!--    .header {-->
+<!--        color: #94a1a6;-->
+<!--    }-->
 
-    body {
-        margin-bottom: 50px;
-    }
-</style>
+<!--    body {-->
+<!--        margin-bottom: 50px;-->
+<!--    }-->
+<!--</style>-->
 <body class="bg-dark mb-5 pb-5">
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main class="m-4 mb-5 pb-5">
@@ -52,7 +52,7 @@
             <div class="card-content text-center">
                 <p th:text="${post.body}"/>
             </div>
-            
+            <img th:src="${images}" class="postImage"  alt="post image"/>
             <div>
                 <p>Created by: <a th:text="${post.user.username}"/>
             </div>

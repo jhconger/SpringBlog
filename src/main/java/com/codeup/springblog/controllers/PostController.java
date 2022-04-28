@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.stream.ImageInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,10 +43,10 @@ public class PostController {
     }
 
     @PostMapping(path = "/posts/create")
-    public String create(@ModelAttribute Post post) {
+    public String create(@ModelAttribute Post post, @RequestParam String imageUrl) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
-        post.setImages(null);
+        post.setImages(imageUrl);
         Post savedPost = postsDao.save(post);
         String subject = "New Ad Created: " + savedPost.getTitle();
         String body = "Dear " + savedPost.getUser().getUsername() + ", Thank you for creating an Ad. Your ad is: " + savedPost.getId();
