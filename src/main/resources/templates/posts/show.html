@@ -50,35 +50,36 @@
 <nav th:replace="/partials/navbar :: navbar"></nav>
 <main class="m-4  ">
     <h3 class="header d-flex card bg-dark text-center">Here is your post:</h3>
-        <div class="d-flex justify-content-center">
-            <div class="car-item card-deck d-flex justify-content-center mx-4 my-4 bg-info" style="overflow-y: auto;">
-                <h4 class="text-center" th:text="${post.title}"></h4>
-                <p class="card-content text-center" th:text="${post.body}"></p>
-                <div th:each="image : ${post.images}">
-                    <img th:src="${image.path}" th:alt="${image.description}">
+    <div class="d-flex justify-content-center">
+        <div class="car-item card-deck d-flex justify-content-center mx-4 my-4 bg-info" style="overflow-y: auto;">
+            <h4 class="text-center" th:text="${post.title}"></h4>
+            <p class="card-content text-center" th:text="${post.body}"></p>
+
+            <div sec:authorize="isAuthenticated()">
+                <div>
+                    <p>Created by: <a th:text="${#authentication.principal.username}"/></p>
                 </div>
-                <div sec:authorize="isAuthenticated()">
-                    <div>
-                        <p>Created by: <a th:text="${#authentication.principal.username}"/></p>
-                    </div>
-                    <div>
-                        <p>Email: <a th:text="${#authentication.principal.email}"/></p>
-                    </div>
-                </div>
-                <div class="d-flex" id="buttons">
-                    <form th:action="${'/posts/' + post.id + '/edit'}">
-                        <button type="submit" id="edit" class="btn btn-primary">Edit</button>
-                    </form>
-                    <form th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
-                        <input type="hidden" name="id" th:value="${post.id}">
-                        <button type="submit" id="delete" class="btn btn-primary">Delete</button>
-                    </form>
+                <div>
+                    <p>Email: <a th:text="${#authentication.principal.email}"/></p>
                 </div>
             </div>
+            <div th:each="image : ${post.images}">
+                <img th:src="${image.path}" th:alt="${image.description}">
+            </div>
+            <img width="50" th:src="${image.url}" alt="" th:each="image : ${post.images}">
+
+            <div class="d-flex" id="buttons">
+                <form th:action="${'/posts/' + post.id + '/edit'}">
+                    <button type="submit" id="edit" class="btn btn-primary">Edit</button>
+                </form>
+                <form th:action="@{/posts/{id}/delete(id=${post.getId()})}" method="post">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <button type="submit" id="delete" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
         </div>
+    </div>
 </main>
-
-
 <footer th:replace="/partials/footer :: footer"></footer>
 </body>
 </html>

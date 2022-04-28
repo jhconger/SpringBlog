@@ -17,6 +17,13 @@
             <label for="newBody">Body</label>
             <textarea th:field="*{body}" class="form-control" id="newBody" rows="3"></textarea>
         </div>
+        <div>
+            <label for="image-1">Image 1</label>
+            <input id="image-1" name="urls" type="url" placeholder="Enter img url">
+            <br>
+            <label for="image-2">Image 2</label>
+            <input id="image-2" name="urls" type="url" placeholder="Enter img url">
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
@@ -26,5 +33,6 @@
 
 
 <footer th:replace="/partials/footer :: footer"></footer>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 </body>
 </html>

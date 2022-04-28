@@ -1,7 +1,7 @@
-@import 'main.css';
 
 
-/* GENERAL STYLES
+
+/* GENERALTYLES
 -------------------------------------------------*/
 body {
     font-family:'Lato', sans-serif;
@@ -68,10 +68,6 @@ header {
     overflow:hidden;
 }
 
-.parallax-pattern-overlay {
-    background-image:url(../img/pattern.png);
-    background-repeat:repeat;
-}
 
 
 /* HEADING

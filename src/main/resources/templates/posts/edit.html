@@ -19,6 +19,14 @@
       <label for="body">Body</label>
       <textarea th:field="*{body}" class="form-control" name="body" id="body" rows="3" th:text="${post.body}"></textarea>
     </div>
+    <br>
+    <div>
+      <label for="imageURL">Image URL:</label>
+      <input id="imageURL" type="text" name="imageURL">
+      <br>
+      <label for="imageDescription">Image Description:</label>
+      <input id="imageDescription" type="text" name="imageDescription">
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
