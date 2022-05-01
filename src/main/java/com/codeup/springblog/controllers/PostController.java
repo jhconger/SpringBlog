@@ -65,12 +65,13 @@ public class PostController {
     public String edit(@PathVariable long id,
                        @RequestParam(name = "title") String title,
                        @RequestParam(name = "body") String body,
+                       @RequestParam(name = "imageUrl") String imageUrl,
                        Model model) {
 
         Post post = postsDao.getById(id);
         post.setTitle(title);
         post.setBody(body);
-
+        post.setImages(imageUrl);
 
         model.addAttribute("post", postsDao.saveAndFlush(post));
         return "redirect:/posts/" + id;

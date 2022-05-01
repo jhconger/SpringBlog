@@ -53,5 +53,17 @@ function openPhotoPicker() {
             document.getElementById("Download Picture").href = result.url;
         })
     }
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+        } else {
+            video.pause();
+            btn.innerHTML = "Play";
+        }
+    }
 }
 

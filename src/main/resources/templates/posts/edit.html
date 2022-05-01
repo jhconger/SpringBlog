@@ -20,12 +20,11 @@
       <textarea th:field="*{body}" class="form-control" name="body" id="body" rows="3" th:text="${post.body}"></textarea>
     </div>
     <br>
+    <div class="postImages">
+
+    </div>
     <div>
-      <label for="imageURL">Image URL:</label>
-      <input id="imageURL" type="text" name="imageURL">
-      <br>
-      <label for="imageDescription">Image Description:</label>
-      <input id="imageDescription" type="text" name="imageDescription">
+      <input class="btn btn-primary" type="BUTTON" name="imageUrl" value="Upload Photo" id="photoPicker" onclick="openPhotoPicker()">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
