@@ -56,10 +56,10 @@
             <p class="card-content text-center" th:text="${post.body}"></p>
 
             <div sec:authorize="isAuthenticated()">
-                <div>
+                <div text-center>
                     <p>Created by: <a th:text="${#authentication.principal.username}"/></p>
                 </div>
-                <div>
+                <div text-center>
                     <p>Email: <a th:text="${#authentication.principal.email}"/></p>
                 </div>
             </div>
