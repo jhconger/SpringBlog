@@ -8,12 +8,12 @@
 
         /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
         .sticky + .content {
-            padding-top: 60px;
+            padding-top: 40px;
         }
     }
 </style>
 </head>
-<nav th:fragment="navbar" class="navbar sticky navbar-expand-lg navbar-dark bg-dark pb-5" id="navbar">
+<nav th:fragment="navbar" class="navbar sticky navbar-expand-lg navbar-dark bg-dark pb-2" id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="https://github.com/jhconger">
             <img th:src="@{/images/HartLogoWhite.png}"/>™
