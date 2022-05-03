@@ -52,7 +52,7 @@
     <h3 class="header d-flex card bg-dark text-center">Here is your post:</h3>
     <div class="d-flex justify-content-center">
         <div class="car-item card-deck d-flex justify-content-center mx-4 my-4 bg-info" style="overflow-y: auto;">
-            <h4 class="text-center" th:text="${post.title}"></h4>
+            <h4 class="text-center justify-content-center" th:text="${post.title}"></h4>
             <p class="card-content text-center" th:text="${post.body}"></p>
 
             <div sec:authorize="isAuthenticated()">
